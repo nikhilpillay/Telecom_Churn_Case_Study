@@ -1,0 +1,26 @@
+We had 130+ columns and 14945 rows in the dataset at the start after performing the data cleaning and manipulation
+After that we handled class imabalance using SMOTE technique and had 136 columns in the dataset
+We ran our first logistic regression and got an accuracy and recall of 85% and 87% approximately on train set
+The same logistic regression was not satisfying the test data as it had accuracy and recall of about 81% and 71%.
+As we had a lot of features so we used PCA on the data which reduced the features to 58 explaining 96% of variance.
+Moving further we applied Logistic Regression on the data undergone PCA and were driven by an accuracy of 80% and recall of 78% on test data
+Moreover, we performed hyperparameter tuning using Grid searchCV which resulted in an accuracy of 80% and recall of 79%
+Then we tried another hyperparameter in Logistic Regression-class_weight. So instead of using SMOTE, we performed PCA and selected features explaing 97% variance(~69 principle components).
+Performed hyper parameter tuning of C and class weight using GridSearchCV and built a model with 72% accuracy and 84% recall.
+Since we want to correctly predit Churned customers, we selected model with higher recall and compromised a little on accuracy. So our final prediction model is Logistic regression with custom class_weight hyperparameter .
+
+First we build the Decision tree with max_depth=5 and other parameters and default, we got an accuracy of 80% and recall of 60%
+We performed hyperparameter tuning using Grid Search CV and obtained a best score of 90% with an accuracy of 86%
+Random forest model was used to train the data and hyperparameter tuning of max_depth, min_samples leaf, min_samples_split and max_feature gave us a recall of approximately 89% and accuracy of 88%.
+This model was used to predict the best features that were strong predictors of churning of the customers
+The driving features are 
+roam_ic_mou_8
+roam_og_mou_8
+loc_ic_mou_8
+loc_ic_t2m_mou_8
+drop_in_arpu_8
+max_rech_amt_8
+total_ic_mou_8
+roam_og_mou_7
+week_of_last_rech_8
+arpu_8
